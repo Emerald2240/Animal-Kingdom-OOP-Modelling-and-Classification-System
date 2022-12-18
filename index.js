@@ -1,3 +1,5 @@
+//#region Abstract Classes: Kingdom, Phylum, SubPhylum, SuperClass, MainClass and Animal
+
 class Kingdom {
     #name
     constructor(name) {
@@ -136,33 +138,33 @@ class Animal extends MainClass {
         }
     }
 
-    getFullDescription() {
+    getAnimalDescription() {
         return (this.#description)
     }
 
-    getName() {
+    getAnimalName() {
         return this.#name
     }
 
-    getCollectiveName() {
+    getAnimalCollectiveName() {
         return this.#collectiveName
     }
 
-    getScientificName() {
+    getAnimalScientificName() {
         return this.#scientificName
     }
 
-    updateScientificName(newScientificName) {
+    updateAnimalScientificName(newScientificName) {
         this.#scientificName = newScientificName
         return true
     }
 
-    updateName(newName) {
+    updateAnimalName(newName) {
         this.#name = newName
         return true
     }
 
-    updateCollectiveName(newCollective) {
+    updateAnimalCollectiveName(newCollective) {
         this.#collectiveName = newCollective
         return true
     }
@@ -193,29 +195,31 @@ class Animal extends MainClass {
     }
 }
 
+//#endregion Abstract Classes end
 
 
 class Moth extends Animal {
     #personalName
+    #gender
     #age
 
-    static totalNumberOfTortoises
-    constructor(personalName, age) {
+    constructor(personalName, gender, age) {
         super(
             'Animalia',
             'Arthropoda',
             'Hexapoda',
             'Holometabola',
             'Insecta',
-            'They are the largest group within the arthropod phylum. Insects have a chitinous exoskeleton, a three-part body (head, thorax and abdomen), three pairs of jointed legs, compound eyes and one pair of antennae.',
+            'They are the largest group within the arthropod phylum. Insects have a chitinous exoskeleton, a three-part body (head, thorax and abdomen), three pairs of jointed legs, compound eyes and one pair of antennae',
             'Moth',
             'Eclipse',
             'Gynnidomorpha Alisman',
-            'Moths are a paraphyletic group of insects that includes all members of the order Lepidoptera that are not butterflies, with moths making up the vast majority of the order. There are thought to be approximately 160,000 species of moth,[1] many of which have yet to be described. Most species of moth are nocturnal, but there are also crepuscular and diurnal species.'
+            'Moths are a paraphyletic group of insects that includes all members of the order Lepidoptera that are not butterflies, with moths making up the vast majority of the order. There are thought to be approximately 160,000 species of moth,[1] many of which have yet to be described. Most species of moth are nocturnal, but there are also crepuscular and diurnal species'
         )
 
 
         this.#personalName = personalName
+        this.#gender = gender
         this.#age = age
     }
 
@@ -227,6 +231,19 @@ class Moth extends Animal {
         return this.#age
     }
 
+    getGender() {
+        return this.#gender
+    }
+
+    getFullDescription() {
+        let fullDescription = `${this.getName()} is a ${this.getAge()} year old ${this.getGender()} ${this.getAnimalName()}.\nA ${this.getAnimalName()} is a member of Kingdom ${this.getKingdom()}, Phylum ${this.getPhylum()}, Sub Phylum ${this.getSubPhylum()}, Super Class ${this.getSuperClass()} and Class ${this.getMainClass()}.\n${this.getAnimalDescription()}. ${this.getMainClassDescription()}. The scientific name for ${this.getAnimalName()} is ${this.getAnimalScientificName()} and collectively they are known as an ${this.getAnimalCollectiveName()} of ${this.getAnimalName()}s.`
+        return fullDescription
+    }
+
+    updateGender(newGender) {
+        console.log('We dont do woke culture stuff here. Gender should not be changed.')
+        return false
+    }
     updateName(newName) {
         this.#personalName = newName
         return true
@@ -237,6 +254,7 @@ class Moth extends Animal {
         return true
     }
 
+    //Overriden Methods
     canFly() {
         return true
     }
@@ -263,16 +281,16 @@ class Moth extends Animal {
 class Salmon extends Animal {
     #personalName
     #age
+    #gender
 
-    static totalNumberOfTortoises
-    constructor(personalName, age) {
+    constructor(personalName, age, gender) {
         super(
             'Animalia',
             'Chordata',
             'Vertebrata',
             'Pisces',
             'Actinopterygil',
-            'Actinopterygii members of which are known as ray-finned fishes, is a class of bony fish. They comprise over 50% of living vertebrate species.',
+            'Actinopterygii members of which are known as ray-finned fishes, is a class of bony fish. They comprise over 50% of living vertebrate species',
             'Salmon',
             'Run',
             'Salmon Salar',
@@ -281,6 +299,7 @@ class Salmon extends Animal {
 
 
         this.#personalName = personalName
+        this.#gender = gender
         this.#age = age
     }
 
@@ -292,9 +311,23 @@ class Salmon extends Animal {
         return this.#age
     }
 
+    getFullDescription() {
+        let fullDescription = `${this.getName()} is a ${this.getAge()} year old ${this.getGender()} ${this.getAnimalName()}.\nA ${this.getAnimalName()} is a member of Kingdom ${this.getKingdom()}, Phylum ${this.getPhylum()}, Sub Phylum ${this.getSubPhylum()}, Super Class ${this.getSuperClass()} and Class ${this.getMainClass()}.\n${this.getAnimalDescription()}. ${this.getMainClassDescription()}. The scientific name for ${this.getAnimalName()} is ${this.getAnimalScientificName()} and collectively they are known as a ${this.getAnimalCollectiveName()} of ${this.getAnimalName()}s.`
+        return fullDescription
+    }
+
     updateName(newName) {
         this.#personalName = newName
         return true
+    }
+
+    getGender() {
+        return this.#gender
+    }
+
+    updateGender(newGender) {
+        console.log('We dont do woke culture stuff here. Gender should not be changed.')
+        return false
     }
 
     updateAge(newAge) {
@@ -328,24 +361,30 @@ class Salmon extends Animal {
 class Frog extends Animal {
     #personalName
     #age
+    #gender
 
-    static totalNumberOfTortoises
-    constructor(personalName, age) {
+    constructor(personalName, age, gender) {
         super(
             'Animalia',
             'Chordata',
             'Vertebrata',
             'Tetrapoda',
             'Amphibia',
-            'Amphibians are four-limbed and ectothermic vertebrates of the class Amphibia. All living amphibians belong to the group Lissamphibia. They inhabit a wide variety of habitats, with most species living within terrestrial, fossorial, arboreal or freshwater aquatic ecosystems.',
+            'Amphibians are four-limbed and ectothermic vertebrates of the class Amphibia. All living amphibians belong to the group Lissamphibia. They inhabit a wide variety of habitats, with most species living within terrestrial, fossorial, arboreal or freshwater aquatic ecosystems',
             'Frog',
             'Army',
             'Anura',
-            'A frog is any member of a diverse and largely carnivorous group of short-bodied, tailless amphibians.'
+            'A frog is any member of a diverse and largely carnivorous group of short-bodied, tailless amphibians'
         )
 
         this.#personalName = personalName
+        this.#gender = gender
         this.#age = age
+    }
+
+    getFullDescription() {
+        let fullDescription = `${this.getName()} is a ${this.getAge()} year old ${this.getGender()} ${this.getAnimalName()}.\nA ${this.getAnimalName()} is a member of Kingdom ${this.getKingdom()}, Phylum ${this.getPhylum()}, Sub Phylum ${this.getSubPhylum()}, Super Class ${this.getSuperClass()} and Class ${this.getMainClass()}.\n${this.getAnimalDescription()}. ${this.getMainClassDescription()}. The scientific name for ${this.getAnimalName()} is ${this.getAnimalScientificName()} and collectively they are known as an ${this.getAnimalCollectiveName()} of ${this.getAnimalName()}s.`
+        return fullDescription
     }
 
     getName() {
@@ -354,6 +393,15 @@ class Frog extends Animal {
 
     getAge() {
         return this.#age
+    }
+
+    getGender() {
+        return this.#gender
+    }
+
+    updateGender(newGender) {
+        console.log('We dont do woke culture stuff here. Gender should not be changed.')
+        return false
     }
 
     updateName(newName) {
@@ -366,6 +414,7 @@ class Frog extends Animal {
         return true
     }
 
+    //Overriden Methods
     canFly() {
         return false
     }
@@ -392,25 +441,26 @@ class Frog extends Animal {
 class Tortoise extends Animal {
     #personalName
     #age
+    #gender
 
-    static totalNumberOfTortoises
-    constructor(personalName, age) {
+    constructor(personalName, age, gender) {
         super(
             'Animalia',
             'Chordata',
             'Vertebrata',
             'Tetrapoda',
             'Reptilia',
-            'Class reptilia, also known as reptiles have scaly skin and often slitted eyes, though some have round eyes. They are cold blooded and lay eggs.',
+            'Class reptilia, also known as reptiles have scaly skin and often slitted eyes, though some have round eyes. They are cold blooded and lay eggs',
             'Tortoise',
             'Creep',
             'Tetsunidae',
-            'Tortoises are very slow and can live as long as over a 100 years.'
+            'Tortoises are very slow and can live as long as over a 100 years'
         )
 
 
         this.#personalName = personalName
         this.#age = age
+        this.#gender = gender
     }
 
     getName() {
@@ -421,9 +471,23 @@ class Tortoise extends Animal {
         return this.#age
     }
 
+    getFullDescription() {
+        let fullDescription = `${this.getName()} is a ${this.getAge()} year old ${this.getGender()} ${this.getAnimalName()}.\nA ${this.getAnimalName()} is a member of Kingdom ${this.getKingdom()}, Phylum ${this.getPhylum()}, Sub Phylum ${this.getSubPhylum()}, Super Class ${this.getSuperClass()} and Class ${this.getMainClass()}.\n${this.getAnimalDescription()}. ${this.getMainClassDescription()}. The scientific name for ${this.getAnimalName()} is ${this.getAnimalScientificName()} and collectively they are known as a ${this.getAnimalCollectiveName()} of ${this.getAnimalName()}s.`
+        return fullDescription
+    }
+
     updateName(newName) {
         this.#personalName = newName
         return true
+    }
+
+    getGender() {
+        return this.#gender
+    }
+
+    updateGender(newGender) {
+        console.log('We dont do woke culture stuff here. Gender should not be changed.')
+        return false
     }
 
     updateAge(newAge) {
@@ -457,25 +521,26 @@ class Tortoise extends Animal {
 class Falcon extends Animal {
     #personalName
     #age
+    #gender
 
-    static totalNumberOfTortoises
-    constructor(personalName, age) {
+    constructor(personalName, age, gender) {
         super(
             'Animalia',
             'Chordata',
             'Vertebrata',
             'Tetrapoda',
             'Aves',
-            'The Aves belong to the phylum Chordata of the animal kingdom. It has about 9,000 species. Aves are adapted to fly. All the birds come in the class Aves.',
+            'The Aves belong to the phylum Chordata of the animal kingdom. It has about 9,000 species. Aves are adapted to fly. All the birds come in the class Aves',
             'Falcon',
             'Cauldron',
             'Falconiformes',
-            'Falcons are birds of prey in the genus Falco, which includes about 40 species. Falcons are widely distributed on all continents of the world except Antarctica,'
+            'Falcons are birds of prey in the genus Falco, which includes about 40 species. Falcons are widely distributed on all continents of the world except Antarctica'
         )
 
 
         this.#personalName = personalName
         this.#age = age
+        this.#gender = gender
     }
 
     getName() {
@@ -484,6 +549,20 @@ class Falcon extends Animal {
 
     getAge() {
         return this.#age
+    }
+
+    getGender() {
+        return this.#gender
+    }
+
+    getFullDescription() {
+        let fullDescription = `${this.getName()} is a ${this.getAge()} year old ${this.getGender()} ${this.getAnimalName()}.\nA ${this.getAnimalName()} is a member of Kingdom ${this.getKingdom()}, Phylum ${this.getPhylum()}, Sub Phylum ${this.getSubPhylum()}, Super Class ${this.getSuperClass()} and Class ${this.getMainClass()}.\n${this.getAnimalDescription()}. ${this.getMainClassDescription()}. The scientific name for ${this.getAnimalName()} is ${this.getAnimalScientificName()} and collectively they are known as a ${this.getAnimalCollectiveName()} of ${this.getAnimalName()}s.`
+        return fullDescription
+    }
+
+    updateGender(newGender) {
+        console.log('We dont do woke culture stuff here. Gender should not be changed.')
+        return false
     }
 
     updateName(newName) {
@@ -522,25 +601,27 @@ class Falcon extends Animal {
 class HouseCat extends Animal {
     #personalName
     #age
+    #gender
 
     static totalNumberOfTortoises
-    constructor(personalName, age) {
+    constructor(personalName, age, gender) {
         super(
             'Animalia',
             'Chordata',
             'Vertebrata',
             'Tetrapoda',
             'Mammalia',
-            'Mammalia are characterized by the presence of mammary glands which in females produce milk for feeding (nursing) their young, a neocortex (a region of the brain), fur or hair, and three middle ear bones.',
+            'Mammalia are characterized by the presence of mammary glands which in females produce milk for feeding (nursing) their young, a neocortex (a region of the brain), fur or hair, and three middle ear bones',
             'House Cat',
             'Clowder',
             'Felis Silvestris Catus',
-            'The cat (Felis catus) is a domestic species of small carnivorous mammal.[1][2] It is the only domesticated species in the family Felidae and is commonly referred to as the domestic cat or house cat to distinguish it from the wild members of the family.'
+            'The cat (Felis catus) is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae and is commonly referred to as the domestic cat or house cat to distinguish it from the wild members of the family'
         )
 
 
         this.#personalName = personalName
         this.#age = age
+        this.#gender = gender
     }
 
     getName() {
@@ -550,10 +631,23 @@ class HouseCat extends Animal {
     getAge() {
         return this.#age
     }
+    getFullDescription() {
+        let fullDescription = `${this.getName()} is a ${this.getAge()} year old ${this.getGender()} ${this.getAnimalName()}.\nA ${this.getAnimalName()} is a member of Kingdom ${this.getKingdom()}, Phylum ${this.getPhylum()}, Sub Phylum ${this.getSubPhylum()}, Super Class ${this.getSuperClass()} and Class ${this.getMainClass()}.\n${this.getAnimalDescription()}. ${this.getMainClassDescription()}. The scientific name for ${this.getAnimalName()} is ${this.getAnimalScientificName()} and collectively they are known as a ${this.getAnimalCollectiveName()} of ${this.getAnimalName()}s.`
+        return fullDescription
+    }
 
     updateName(newName) {
         this.#personalName = newName
         return true
+    }
+
+    getGender() {
+        return this.#gender
+    }
+
+    updateGender(newGender) {
+        console.log('We dont do woke culture stuff here. Gender should not be changed.')
+        return false
     }
 
     updateAge(newAge) {
@@ -588,12 +682,9 @@ class HouseCat extends Animal {
 
 
 
-const julia = new Frog('Julia', 54);
+const julia = new HouseCat('Julia', 21, 'Female');
 // console.log(julia.getPhylum())
 // console.log(julia.getSuperClass())
 
-console.log(julia.getKingdom())
-
-console.log(julia.getMainClass())
-console.log(julia.getMainClassDescription())
-console.log(julia.getSuperClass())
+// console.log(julia.getKingdom())
+console.log(julia.getFullDescription())
