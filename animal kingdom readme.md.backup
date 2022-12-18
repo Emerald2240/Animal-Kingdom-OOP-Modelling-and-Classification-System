@@ -37,7 +37,7 @@ The core classes that all come together to form the animal class is done through
 All core properties and attributes of each class are hidden and cannot be accessed outside. Instead methods are created that can be used to access the desired values in a safe, controlled manner.
 
 ### Abstraction
-The base classes Kingdom, Phylum, Super Class and so on, cannot be called on their own. They have no meaning when on their own and so are best when combined with others.
+The base classes Kingdom, Phylum, Super Class and so on, cannot be called on their own. They have no meaning when on their own and so are best when combined with others. For that reason, it is impossible to call these classes on their own
 
 ## Usage and Conclusion
 The code can be used very easily by simply creating instances of the animals which were specified(Moth, Salmon, Frog, Tortoise, Falcon and House Cats).
