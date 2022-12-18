@@ -687,4 +687,5 @@ const julia = new HouseCat('Julia', 21, 'Female');
 // console.log(julia.getSuperClass())
 
 // console.log(julia.getKingdom())
+console.log('')
 console.log(julia.getFullDescription())
