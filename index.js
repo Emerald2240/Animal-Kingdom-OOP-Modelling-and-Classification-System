@@ -260,14 +260,14 @@ class Moth extends Animal {
     }
 
     warmBlooded() {
-        return true
+        return false
     }
 
     hasBackbone() {
         return false
     }
 
-    canLayEggs() {
+    LaysEggs() {
         return true
     }
 
